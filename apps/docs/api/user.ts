@@ -3,7 +3,7 @@ import type { User, UserResult } from "../types/User";
 export const userApi = createApi({
   reducerPath: "userApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: `http://100.100.8.32:3001/users`,
+    baseUrl: `http://localhost:3001/users`,
   }),
   tagTypes: ["User"],
   endpoints: (builder) => ({
