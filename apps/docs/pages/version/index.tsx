@@ -1,16 +1,24 @@
+import { Button } from "ui";
 import { useGetVersionQuery } from "../../api/version";
-import ReactHtmlParser from "react-html-parser";
+import { useState, useEffect } from "react";
+import parse from "html-react-parser";
 
 export default function Version() {
-  const { data, error, isLoading } = useGetVersionQuery();
-  if (!data?.data) return <></>;
-  console.log(data.data[0].attributes.content);
+  const { data: versionData, isLoading } = useGetVersionQuery();
+
+  if (!versionData) return <></>;
+
   return (
-    <>
-      <div>
-        <div>{data.data[0].attributes.title}</div>
-        {ReactHtmlParser(data.data[0].attributes.content)}
-      </div>
-    </>
+    <div>
+      <div>버전 정보</div>
+      {versionData.data.map((d) => {
+        return (
+          <div key={d.id}>
+            <div>{d.attributes.title}</div>
+            <div>{parse(d.attributes.content)}</div>
+          </div>
+        );
+      })}
+    </div>
   );
 }

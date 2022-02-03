@@ -1,4 +1,4 @@
-export type Data = {
+type Data = {
   id: number;
   attributes: {
     title: string;
@@ -9,14 +9,16 @@ export type Data = {
   };
 };
 
+type Meta = {
+  pagination: {
+    page: number;
+    pageSize: number;
+    pageCount: number;
+    total: number;
+  };
+};
+
 export type VersionResult = {
   data: Data[];
-  meta: {
-    pagination: {
-      page: number;
-      pageSize: number;
-      pageCount: number;
-      total: number;
-    };
-  };
+  meta: Meta;
 };

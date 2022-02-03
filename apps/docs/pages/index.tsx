@@ -1,14 +1,25 @@
 import Link from "next/link";
 
-export default function Home() {
+function Home() {
   return (
-    <>
-      <div>
-        <Link href="/user">유저</Link>
-      </div>
-      <div>
-        <Link href="/version">버전</Link>
-      </div>
-    </>
+    <ul>
+      <li>
+        <Link href="/">
+          <a>홈</a>
+        </Link>
+      </li>
+      <li>
+        <Link href="/user">
+          <a>사용자 관리</a>
+        </Link>
+      </li>
+      <li>
+        <Link href="/version">
+          <a>버전 안내</a>
+        </Link>
+      </li>
+    </ul>
   );
 }
+
+export default Home;

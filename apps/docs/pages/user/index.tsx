@@ -48,7 +48,7 @@ export default function Docs() {
 
   return (
     <div>
-      <div>학생 목록</div>
+      <div>사용자 목록</div>
       {customData?.map((d) => {
         return (
           <div key={d.id} style={{ display: "flex" }}>
@@ -71,7 +71,7 @@ export default function Docs() {
           onChange={(e) => setName(e.target.value)}
         />
       </label>
-      <Button onClick={addUser} text="학생등록" />
+      <Button onClick={addUser} text="사용자 등록" />
     </div>
   );
 }
